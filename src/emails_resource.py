@@ -16,10 +16,9 @@ class EmailsResource:
         h = os.environ.get("DBHOST")
 
         conn = pymysql.connect(
-            user='admin',
-            password='4355Sasha2056!',
-            # host='localhost',
-            host='e6156.cwjkexlxpxly.us-east-1.rds.amazonaws.com',
+            user=usr,
+            password=pw,
+            host=h,
             cursorclass=pymysql.cursors.DictCursor,
             autocommit=True
         )
