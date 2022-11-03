@@ -7,7 +7,7 @@
 4. addresses: [cuid, address, kind]
 
 ## Routes
-- **students/\<uni>/phones**: description of route
-- **students/\<uni>/emails**:
-- **students/\<uni>/addresses**:
+- **students/\<uni>/phones**: returns the [cuid, email, kind]
+- **students/\<uni>/emails**: [cuid, phone, kind]
+- **students/\<uni>/addresses**: [cuid, address, kind]
 
