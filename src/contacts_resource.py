@@ -26,7 +26,7 @@ class ContactsResource:
     @staticmethod
     def get_email_by_id(key):
         # need to join emails + students table based on student id; then get the email from joined table
-        sql = "SELECT * FROM f22_databases.emails where candidate_id=%s";
+        sql = "SELECT * FROM cloud_project_db.emails where candidate_id=%s";
         conn = ContactsResource._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=key)
@@ -36,7 +36,7 @@ class ContactsResource:
     @staticmethod
     def get_address_by_id(key):
         # need to join emails + students table based on student id; then get the email from joined table
-        sql = "SELECT * FROM f22_databases.addresses where candidate_id=%s";
+        sql = "SELECT * FROM cloud_project_db.addresses where candidate_id=%s";
         conn = ContactsResource._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=key)
@@ -46,7 +46,7 @@ class ContactsResource:
     @staticmethod
     def get_phone_by_id(key):
         # need to join emails + students table based on student id; then get the email from joined table
-        sql = "SELECT * FROM f22_databases.phones where candidate_id=%s";
+        sql = "SELECT * FROM cloud_project_db.phones where candidate_id=%s";
         conn = ContactsResource._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=key)
@@ -56,7 +56,7 @@ class ContactsResource:
     @staticmethod
     def get_email_address_by_id(key):
         # need to join emails + students table based on student id; then get the email from joined table
-        sql = "SELECT email FROM f22_databases.emails where candidate_id=%s";
+        sql = "SELECT email FROM cloud_project_db.emails where candidate_id=%s";
         conn = ContactsResource._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=key)
@@ -66,7 +66,7 @@ class ContactsResource:
     @staticmethod
     def get_email_type_by_id(key):
         # need to join emails + students table based on student id; then get the email from joined table
-        sql = "SELECT kind FROM f22_databases.emails where candidate_id=%s";
+        sql = "SELECT kind FROM cloud_project_db.emails where candidate_id=%s";
         conn = ContactsResource._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=key)
