@@ -15,7 +15,6 @@ class ContactsResource:
         h = os.environ.get("DBHOST")
 
         conn = pymysql.connect(
-            # user='admin',
             user=usr,
             password=pw,
             host=h,
@@ -25,9 +24,9 @@ class ContactsResource:
         return conn
 
     @staticmethod
-    def get_email_by_uni(key):
+    def get_email_by_id(key):
         # need to join emails + students table based on student id; then get the email from joined table
-        sql = "SELECT * FROM f22_databases.emails where CUID=%s";
+        sql = "SELECT * FROM f22_databases.emails where candidate_id=%s";
         conn = ContactsResource._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=key)
@@ -35,9 +34,9 @@ class ContactsResource:
         return result
 
     @staticmethod
-    def get_address_by_uni(key):
+    def get_address_by_id(key):
         # need to join emails + students table based on student id; then get the email from joined table
-        sql = "SELECT * FROM f22_databases.addresses where CUID=%s";
+        sql = "SELECT * FROM f22_databases.addresses where candidate_id=%s";
         conn = ContactsResource._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=key)
@@ -45,9 +44,9 @@ class ContactsResource:
         return result
     
     @staticmethod
-    def get_phone_by_uni(key):
+    def get_phone_by_id(key):
         # need to join emails + students table based on student id; then get the email from joined table
-        sql = "SELECT * FROM f22_databases.phones where CUID=%s";
+        sql = "SELECT * FROM f22_databases.phones where candidate_id=%s";
         conn = ContactsResource._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=key)
@@ -55,9 +54,9 @@ class ContactsResource:
         return result
 
     @staticmethod
-    def get_email_address_by_uni(key):
+    def get_email_address_by_id(key):
         # need to join emails + students table based on student id; then get the email from joined table
-        sql = "SELECT email FROM f22_databases.emails where CUID=%s";
+        sql = "SELECT email FROM f22_databases.emails where candidate_id=%s";
         conn = ContactsResource._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=key)
@@ -65,9 +64,9 @@ class ContactsResource:
         return result
 
     @staticmethod
-    def get_email_type_by_uni(key):
+    def get_email_type_by_id(key):
         # need to join emails + students table based on student id; then get the email from joined table
-        sql = "SELECT kind FROM f22_databases.emails where CUID=%s";
+        sql = "SELECT kind FROM f22_databases.emails where candidate_id=%s";
         conn = ContactsResource._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=key)

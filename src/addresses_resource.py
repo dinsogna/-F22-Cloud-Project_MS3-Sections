@@ -18,8 +18,8 @@ class ColumbiaStudentResource:
         conn = pymysql.connect(
             user='admin',
             password='4355Sasha2056!',
-            # host='localhost',
-            host='e6156.cwjkexlxpxly.us-east-1.rds.amazonaws.com',
+            host='localhost',
+            # host='e6156.cwjkexlxpxly.us-east-1.rds.amazonaws.com',
             cursorclass=pymysql.cursors.DictCursor,
             autocommit=True
         )
