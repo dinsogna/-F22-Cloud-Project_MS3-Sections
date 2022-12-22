@@ -27,10 +27,9 @@ def get_health():
 
     return result
 
-@app.route("/api/contacts/<id>/emails", methods=["GET"])
-def get_email_by_id(id):
-    print("Candidate ID:", id)
-    result = ContactsResource.get_email_by_id(id)
+@app.route("/api/contacts/<id>/contact", methods=["GET"])
+def get_contact_by_id(id):
+    result = ContactsResource.get_contact_by_id(id)
     if result:
         rsp = Response(json.dumps(result), status=200, content_type="application.json")
     else:

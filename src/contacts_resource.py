@@ -24,7 +24,7 @@ class ContactsResource:
         return conn
 
     @staticmethod
-    def get_email_by_id(key):
+    def get_contact_by_id(key):
         # need to join emails + students table based on student id; then get the email from joined table
         sql = "SELECT * FROM cloud_project_db.emails where candidate_id=%s";
         conn = ContactsResource._get_connection()
