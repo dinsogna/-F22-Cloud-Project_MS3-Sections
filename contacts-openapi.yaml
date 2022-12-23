@@ -1,0 +1,202 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: contacts
+  description: Contacts API for Cloud Project
+
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/INSOGNADOMINIC/contacts/1.0.0
+  - description: AWS EC2 instance for Contacts API
+    url: https://l0g8wwl0f1.execute-api.us-east-1.amazonaws.com
+
+paths:
+  /api/health:
+    get:
+      summary: Checks the API connection health
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  type: string
+                  example: {
+                    "name": "F22-Microservice-3-Contacts",
+                    "health": "Good",
+                    "at time": "2022-12-22 16:46:20.369853"}
+        '404':
+          description: Not Found
+          
+  /api/contacts/{id}/contact:
+    get:
+      summary: Gets contact info of applicant with certain id
+      tags:
+        - Contacts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: applicant ID
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  type: string
+                  example: 
+                    candidate_id: '1'
+                    email: mgb@gmail.com
+                    kind: personal
+        '404':
+          description: Not Found
+  /api/contacts/{id}/addresses:
+    get:
+      summary: Gets address of applicant with certain id
+      tags:
+        - Contacts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: applicant ID
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  type: string
+                  example: 
+                    candidate_id: '1'
+                    address: 123 Main Street
+                    kind: personal
+        '404':
+          description: Not Found
+          
+  /api/contacts/{id}/phones:
+    get:
+      summary: Gets phone of applicant with certain id
+      tags:
+        - Contacts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: applicant ID
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  type: string
+                  example: 
+                    candidate_id: '1'
+                    phone: 100-400-7000
+                    kind: personal
+        '404':
+          description: Not Found
+          
+  /api/contacts/{id}/emailaddress:
+    get:
+      summary: Gets email address of applicant with certain id
+      tags:
+        - Contacts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: applicant ID
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  type: string
+                  example: 
+                    email: mgb@gmail.com
+        '404':
+          description: Not Found
+  
+  /api/contacts/{id}/newaddress:
+    post:
+      summary: Verifies an applicants address using the Smarty Streets API
+      tags:
+        - Contacts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: applicant ID
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                address:          # <!--- form field name
+                  type: string
+              required:
+                - address
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+                items:
+                  type: string
+                  example: 
+                    email: "4355 Rayburn St Westlake Village CA 91362-4738"
+        '404':
+          description: Not Found
+        '400':
+          description: Bad Request
+components:
+  schemas:
+    Schema:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+
+  
